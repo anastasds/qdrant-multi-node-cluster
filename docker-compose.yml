@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   qdrant_node1:
-    image: qdrant/qdrant:v1.8.3
+    image: qdrant/qdrant:v1.13.3
     container_name: qdrant_node1
     volumes:
       - ./data/node1:/qdrant/storage
@@ -14,7 +14,7 @@ services:
     command: "./qdrant --uri http://qdrant_node1:6335"
 
   qdrant_node2:
-    image: qdrant/qdrant:v1.8.3
+    image: qdrant/qdrant:v1.13.3
     container_name: qdrant_node2
     volumes:
       - ./data/node2:/qdrant/storage
@@ -26,7 +26,7 @@ services:
     command: "./qdrant --bootstrap http://qdrant_node1:6335 --uri http://qdrant_node2:6335"
 
   qdrant_node3:
-    image: qdrant/qdrant:v1.8.3
+    image: qdrant/qdrant:v1.13.3
     container_name: qdrant_node3
     volumes:
       - ./data/node3:/qdrant/storage
