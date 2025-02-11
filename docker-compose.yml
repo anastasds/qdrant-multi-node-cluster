@@ -10,6 +10,7 @@ services:
       - "6333:6333"
     environment:
       QDRANT__CLUSTER__ENABLED: "true"
+      QDRANT__TELEMETRY_DISABLED: "true"
     command: "./qdrant --uri http://qdrant_node1:6335"
 
   qdrant_node2:
@@ -21,6 +22,7 @@ services:
       - qdrant_node1
     environment:
       QDRANT__CLUSTER__ENABLED: "true"
+      QDRANT__TELEMETRY_DISABLED: "true"
     command: "./qdrant --bootstrap http://qdrant_node1:6335 --uri http://qdrant_node2:6335"
 
   qdrant_node3:
@@ -32,6 +34,7 @@ services:
       - qdrant_node1
     environment:
       QDRANT__CLUSTER__ENABLED: "true"
+      QDRANT__TELEMETRY_DISABLED: "true"
     command: "./qdrant --bootstrap http://qdrant_node1:6335 --uri http://qdrant_node3:6335"
 
   prometheus:
